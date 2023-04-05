@@ -1,0 +1,34 @@
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>
+      </title>
+      <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+      <meta content="tesseract 5.0.0-alpha-20201231-256-g73a32" name="ocr-system"/>
+      <meta content="ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf" name="ocr-capabilities"/>
+    </head>
+    <body>
+      <div class="ocr_page" id="page_id_111" title='page "111"; bbox 0 0 595 841 ppageno 0'>
+          <span class="ocr_sent" title="bbox 450 307 500 352">2. </span>
+      <span class="ocr_sent" title="bbox 525 307 1708 352">Briefly examine the impact of politics on the caste system. </span>
+      <span class="ocr_sent" title="bbox 450 373 500 418">3. </span>
+      <span class="ocr_sent" title="bbox 525 373 2117 484">Briefly describe the elements that have contributed to India's caste system's weakening. </span>
+      <span class="ocr_sent" title="bbox 375 548 1056 593">8.7. SUGGESTED READINGS </span>
+      <span class="ocr_sent" title="bbox 375 648 410 704"> </span>
+      <span class="ocr_sent" title="bbox 450 658 2116 770">A.R. Dutta, Politics in India: Issues, Institutions, Processes, Arun Prakashan, Guwahati, 2013 </span>
+      <span class="ocr_sent" title="bbox 375 783 410 839"> </span>
+      <span class="ocr_sent" title="bbox 450 783 1707 839">Rajni Kothari, ―Politics in India‖, Little Brown, Boston, 1970. </span>
+      <span class="ocr_sent" title="bbox 375 853 410 909"> </span>
+      <span class="ocr_sent" title="bbox 450 853 2118 975">W.H. Jones, ―The Government and Politics of India‖, Hutchinson University Library, New York, 1967. </span>
+      <span class="ocr_sent" title="bbox 375 989 410 1045"> </span>
+      <span class="ocr_sent" title="bbox 450 989 2117 1111">Paul R. Brass, ―The Politics of India since Independence‖, Cambridge University Press, 1994. </span>
+      <span class="ocr_sent" title="bbox 375 1125 410 1181"> </span>
+      <span class="ocr_sent" title="bbox 450 1135 2061 1181">Horst Hartmann, Political Parties in India, Meenakshi Prakashan, Meerut, 1971. </span>
+      <span class="ocr_sent" title="bbox 375 1195 410 1250"> </span>
+      <span class="ocr_sent" title="bbox 450 1205 2117 1317">J. Derrett & M. Duncan, Religion, Law and the State in India, Faber and Faber, London, 1966. </span>
+    </div>
+  </body>
+</html>

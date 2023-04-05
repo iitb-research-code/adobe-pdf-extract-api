@@ -1,0 +1,27 @@
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>
+      </title>
+      <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+      <meta content="tesseract 5.0.0-alpha-20201231-256-g73a32" name="ocr-system"/>
+      <meta content="ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf" name="ocr-capabilities"/>
+    </head>
+    <body>
+      <div class="ocr_page" id="page_id_3" title='page "3"; bbox 0 0 595 842 ppageno 0'>
+          <img class="ocr_im" title="bbox 161 230 365 435" src="../Cropped_Images/figures/fileoutpart3.png"> 
+      <span class="ocr_sent" title="bbox 576 266 2106 368">JAGAT GURU NANAK DEV PUNJAB STATE OPEN UNIVERSITY, PATIALA </span>
+      <span class="ocr_sent" title="bbox 571 381 2114 425">(Established by Act No. 19 of 2019 of the Legislature of State of Punjab) </span>
+      <span class="ocr_sent" title="bbox 1250 541 1539 593">PREFACE </span>
+      <span class="ocr_sent" title="bbox 444 679 2193 1070">Jagat Guru Nanak Dev Punjab State Open University, Patiala was established in December 2019 by Act 19 of the Legislature of State of Punjab. It is the first and only Open University of the State, entrusted with the responsibility of making higher education accessible to all, especially to those sections of society who do not have the means, time or opportunity to pursue regular education. </span>
+      <span class="ocr_sent" title="bbox 444 1152 2194 1457">In keeping with the nature of an Open University, this University provides a flexible education system to suit every need. The time given to complete a programme is double the duration of a regular mode programme. Well-designed study material has been prepared in consultation with experts in their respective fields. </span>
+      <span class="ocr_sent" title="bbox 444 1539 2195 1929">The University offers programmes which have been designed to provide relevant, skill-based and employability-enhancing education. The study material provided in this booklet is self- instructional, with self-assessment exercises, and recommendations for further readings. The syllabus has been divided in sections, and provided as units for simplification. </span>
+      <span class="ocr_sent" title="bbox 444 2012 2195 2316">The University has a network of 10 Learner Support Centres/Study Centres, to enable students to make use of reading facilities, and for curriculum-based counseling and practicals. We, at the University, welcome you to be a part of this institution of knowledge. </span>
+      <span class="ocr_sent" title="bbox 1781 2681 2106 2727">Prof. Anita Gill </span>
+      <span class="ocr_sent" title="bbox 1631 2739 2115 2784">Dean Academic Affairs </span>
+    </div>
+  </body>
+</html>

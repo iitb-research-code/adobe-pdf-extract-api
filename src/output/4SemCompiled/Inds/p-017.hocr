@@ -1,0 +1,30 @@
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>
+      </title>
+      <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+      <meta content="tesseract 5.0.0-alpha-20201231-256-g73a32" name="ocr-system"/>
+      <meta content="ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf" name="ocr-capabilities"/>
+    </head>
+    <body>
+      <div class="ocr_page" id="page_id_16" title='page "16"; bbox 0 0 595 841 ppageno 0'>
+          <span class="ocr_sent" title="bbox 394 307 444 352">2. </span>
+      <span class="ocr_sent" title="bbox 462 307 1870 352">Can Governor act on his own behest or is it unconstitutional to do so? </span>
+      <span class="ocr_sent" title="bbox 394 415 444 460">3. </span>
+      <span class="ocr_sent" title="bbox 462 415 1477 460">What is the procedure for removal of a Governor? </span>
+      <span class="ocr_sent" title="bbox 394 522 444 568">4. </span>
+      <span class="ocr_sent" title="bbox 462 522 1735 568">Is Pardoning power of the Governor subject to judicial review? </span>
+      <span class="ocr_sent" title="bbox 375 632 1119 677">1.8. SUGGESTED READINGS </span>
+      <span class="ocr_sent" title="bbox 375 731 410 787"> </span>
+      <span class="ocr_sent" title="bbox 462 741 2103 787">J.N. Pandey, Constitutional Law of India, Central Law Agency, Allahabad, 2018. </span>
+      <span class="ocr_sent" title="bbox 375 842 410 898"> </span>
+      <span class="ocr_sent" title="bbox 462 853 1092 898">Constituent Assembly debates. </span>
+      <span class="ocr_sent" title="bbox 375 954 410 1010"> </span>
+      <span class="ocr_sent" title="bbox 462 964 1608 1010">M.P. Jain, Indian Constitutional Law, LexisNexis, 2018. </span>
+    </div>
+  </body>
+</html>
