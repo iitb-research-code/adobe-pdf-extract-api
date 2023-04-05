@@ -293,16 +293,16 @@ def convert(txt):
   
  
   ## Block 6 : OP formed from single INPUT character : NUMERALS & PUNCTUATIONS
-  txt = txt.replace(u'\u0030',u'০')
-  txt = txt.replace(u'\u0031',u'১')
-  txt = txt.replace(u'\u0032',u'২')
-  txt = txt.replace(u'\u0033',u'৩')
-  txt = txt.replace(u'\u0034',u'৪')
-  txt = txt.replace(u'\u0035',u'৫')
-  txt = txt.replace(u'\u0036',u'৬')
-  txt = txt.replace(u'\u0037',u'৭')
-  txt = txt.replace(u'\u0038',u'৮')
-  txt = txt.replace(u'\u0039',u'৯')
+  # txt = txt.replace(u'\u0030',u'০')
+  # txt = txt.replace(u'\u0031',u'১')
+  # txt = txt.replace(u'\u0032',u'২')
+  # txt = txt.replace(u'\u0033',u'৩')
+  # txt = txt.replace(u'\u0034',u'৪')
+  # txt = txt.replace(u'\u0035',u'৫')
+  # txt = txt.replace(u'\u0036',u'৬')
+  # txt = txt.replace(u'\u0037',u'৭')
+  # txt = txt.replace(u'\u0038',u'৮')
+  # txt = txt.replace(u'\u0039',u'৯')
   
   txt = txt.replace(u'\u002f',u'/')
   txt = txt.replace(u'\u0053',u'(')  

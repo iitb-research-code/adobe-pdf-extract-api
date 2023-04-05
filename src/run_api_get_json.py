@@ -58,6 +58,6 @@ try:
     result: FileRef = extract_pdf_operation.execute(execution_context)
 
     # Save the result to the specified location.
-    result.save_as(base_path + "/output/" + output_zip)
+    result.save_as(base_path + "/output" + output_zip)
 except (ServiceApiException, ServiceUsageException, SdkException):
     logging.exception("Exception encountered while executing operation")

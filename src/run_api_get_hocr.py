@@ -27,6 +27,7 @@ import re
 import shutil
 import copy
 import PyPDF2
+from utility.unicode_bengali import convert
 
 def removelink(filename):
     pdf_reader = PyPDF2.PdfFileReader(filename)
@@ -157,7 +158,7 @@ def conv_bbox(bounds,page_dim):
   return final_bbox
 
 def table_hocr(table, table_box):
-  hocr = f'<table class="ocr_tab" title="bbox {" ".join([str(coord) for coord in table_box])}"> \n'
+  hocr = f'<table border="1" class="ocr_tab" title="bbox {" ".join([str(coord) for coord in table_box])}"> \n'
   for row in table:
     hocr +="<tr> \n"
     for cell in row:
@@ -171,15 +172,9 @@ def table_hocr(table, table_box):
         if contents[0]=='Text':
           cell_hocr += '          '+contents[2] + ' \n'
         elif contents[0]=='Figure':
-          if page_offset > 0:
-            index = str(page_offset + 1) + "/"
-            content = list(contents)
-            print("Offset > 0")
-            print(content)
-            img_path = content[2].replace('/', index, 1)
-          else:
-            img_path = contents[2]
-          cell_hocr += f'          <img class="ocr_im" title="bbox {" ".join([str(coord) for coord in contents[1]])}" src="../Cropped_Images/{img_path}"> \n'
+          img_path = "../Cropped_Images/" + str(contents[2])
+          img_path = figure_path(img_path, page_offset)
+          cell_hocr += f'          <img class="ocr_im" title="bbox {" ".join([str(coord) for coord in contents[1]])}" src="{img_path}"> \n'
       
       if cell[1]:
         cell_hocr += "      </td> \n"
@@ -201,15 +196,9 @@ def figure_path(path,offset):
 
 def gen_tables(elements,page_dims):
   table_data = [element for element in elements if "Table" in element['Path']]
-  tables = {}
-  # if "Page" not in element:
-  #   return tables
-  table_names = []
-  for element in elements:
-    if "Table" in element['Path'].split("/")[-1] and "Page" in element:
-      table_names.append((element['Page'],element['Path'],element['Bounds']))
-  # table_names = [(element['Page'],element['Path'],element['Bounds']) for element in elements if "Table" in element['Path'].split("/")[-1] and if "Page" in element]
+  table_names = [(element['Page'],element['Path'].split('/')[-1],element['Bounds']) for element in elements if 'Page' in element and "Table" in element['Path'].split("/")[-1]]
   # print(table_names)
+  tables = {}
   for pg,table,bound in table_names:
     tables[table] = {'page': pg, "tab": [], "hocr": [], "bbox": conv_bbox(bound,page_dims[pg]),"added": []}
 
@@ -217,7 +206,7 @@ def gen_tables(elements,page_dims):
   for pg,table,bound in table_names:
     # print(pg,table)
     tab = []
-    res = [element['Path'].split("/")[-2] for element in elements if "TR" in element['Path'].split("/")[-2] and table == "/".join(element['Path'].split("/")[:-2]) ]
+    res = [element['Path'].split("/")[-2] for element in elements if "TR" in element['Path'].split("/")[-2] and table == element['Path'].split("/")[-3] ]
     # trs = list(set(trs))
     # trs.sort()
     trs = []
@@ -226,11 +215,11 @@ def gen_tables(elements,page_dims):
 
     for tr in trs:
       row = []
-      ths = [element['Path'] for element in elements if "TH" in element['Path'].split("/")[-1] and table == "/".join(element['Path'].split("/")[:-2]) and tr == element['Path'].split("/")[-2] ]  
+      ths = [element['Path'] for element in elements if "TH" in element['Path'].split("/")[-1] and table == element['Path'].split("/")[-3] and tr == element['Path'].split("/")[-2] ]  
       # if len(ths)!=0:
       #   print(ths)
       
-      tds = [element['Path'] for element in elements if "TD" in element['Path'].split("/")[-1] and table == "/".join(element['Path'].split("/")[:-2]) and tr == element['Path'].split("/")[-2] ]
+      tds = [element['Path'] for element in elements if "TD" in element['Path'].split("/")[-1] and table == element['Path'].split("/")[-3] and tr == element['Path'].split("/")[-2] ]
       # if len(tds)!=0:
       # print(tds)
 
@@ -247,11 +236,11 @@ def gen_tables(elements,page_dims):
               if 'Figure' in element['Path']:
                   th_cont.append(("Figure",[int(i) for i in bbox],element['filePaths'][0],element['Page']))
           elif th ==element['Path']:
-            if "Bounds" in element:
+            if 'Bounds' in element:
                 bbox = conv_bbox(element["Bounds"],page_dims[element['Page']])
                 thbbox = conv_bbox(element["Bounds"],page_dims[element['Page']])
-            if 'Text' in element:
-                th_cont.append(("Text",[int(i) for i in bbox],element['Text'],element['Page']))
+                if 'Text' in element:
+                    th_cont.append(("Text",[int(i) for i in bbox],element['Text'],element['Page']))
         row.append((th_cont,False,thbbox))
 
       # For table data
@@ -285,8 +274,8 @@ def table_splitter(table,pg):
   for row in table:
     # print(row[0][0][0][-1],page)
     for cell in row:
-      # print(cell)
-      if len(cell[0])==1 and len(cell[0][0]) == 4:
+      #print(cell)
+      if len(cell[0]) and len(cell[0][0]) == 4:
         if cell[0][0][-1]==page:
           pg_table.append(row)
         elif cell[0][0][-1]==page+1:
@@ -321,7 +310,7 @@ tables = gen_tables(elements,page_dims)
 for table in tables:
   # print(tables[table]['tab'][0][1][0][0][-1])
   pg_tables = table_splitter(tables[table]['tab'],tables[table]['page'])
-  # print(len(pg_tables))
+  print(len(pg_tables))
   pg = tables[table]['page']
   for pg_table in pg_tables:
     tables[table]['hocr'].append(table_hocr(pg_table,tables[table]['bbox']))
@@ -376,11 +365,9 @@ for page in pages:
     if element[0]=="Table":
       hocr += element[1]
     if element[0]=="Figure":
-      img_path = element[2]
-      if page_offset > 0:
-        index = str(page_offset + 1) + "/"
-        img_path = img_path.replace('/', index, 1)
-      hocr += f'      <img class="ocr_im" title="bbox {" ".join([str(i) for i in element[1]])}" src="../Cropped_Images/{img_path}"> \n'
+      img_path = "../Cropped_Images/" + str(element[2])
+      img_path = figure_path(img_path, page_offset)
+      hocr += f'      <img class="ocr_im" title="bbox {" ".join([str(i) for i in element[1]])}" src="{img_path}"> \n'
   hocr+=footer
   hocrs.append(hocr)
 

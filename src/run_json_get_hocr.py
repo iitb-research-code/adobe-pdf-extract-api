@@ -19,6 +19,7 @@ import re
 import shutil
 import copy
 import PyPDF2
+from utility.unicode_bengali import convert
 
 
 def removelink(filename):
@@ -96,7 +97,7 @@ def conv_bbox(bounds,page_dim):
   return final_bbox
 
 def table_hocr(table, table_box):
-  hocr = f'<table class="ocr_tab" title="bbox {" ".join([str(coord) for coord in table_box])}"> \n'
+  hocr = f'<table border="1" class="ocr_tab" title="bbox {" ".join([str(coord) for coord in table_box])}"> \n'
   for row in table:
     hocr +="<tr> \n"
     for cell in row:
@@ -108,7 +109,8 @@ def table_hocr(table, table_box):
       # print(cell[0])
       for contents in cell[0]:
         if contents[0]=='Text':
-          cell_hocr += '          '+contents[2] + ' \n'
+          print(contents)
+          cell_hocr += '          '+convert(contents[2]) + ' \n'
         elif contents[0]=='Figure':
           if page_offset > 0:
             index = str(page_offset + 1) + "/"
@@ -283,8 +285,8 @@ for element in elements:
             pages[element['Page']].append(('Table',tables[table]['hocr'][h]))
             tables[table]['added'][h] = True
       # print("Table")
-    elif 'Text' in element.keys():
-      pages[element['Page']].append(('Text',[int(i) for i in bbox],element['Text']))
+    # elif 'Text' in element.keys():
+    #   pages[element['Page']].append(('Text',[int(i) for i in bbox],element['Text']))
     elif "Figure" in element['Path'].split("/")[-1]:
       pages[element['Page']].append(("Figure",[int(i) for i in bbox],element['filePaths'][0]))
       # print("Figure")
